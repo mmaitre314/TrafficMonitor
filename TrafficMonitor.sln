@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficMonitor", "TrafficMo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficReport", "TrafficReport\TrafficReport.csproj", "{543721BA-AF0C-4FD0-A88A-7202D3C9AA0A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficMonitorMobileService", "TrafficMonitorMobileService\TrafficMonitorMobileService.csproj", "{008BF50A-E514-4E5B-8680-72B3955F4C33}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,14 @@ Global
 		{543721BA-AF0C-4FD0-A88A-7202D3C9AA0A}.Release|x86.ActiveCfg = Release|x86
 		{543721BA-AF0C-4FD0-A88A-7202D3C9AA0A}.Release|x86.Build.0 = Release|x86
 		{543721BA-AF0C-4FD0-A88A-7202D3C9AA0A}.Release|x86.Deploy.0 = Release|x86
+		{008BF50A-E514-4E5B-8680-72B3955F4C33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{008BF50A-E514-4E5B-8680-72B3955F4C33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{008BF50A-E514-4E5B-8680-72B3955F4C33}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{008BF50A-E514-4E5B-8680-72B3955F4C33}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{008BF50A-E514-4E5B-8680-72B3955F4C33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{008BF50A-E514-4E5B-8680-72B3955F4C33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{008BF50A-E514-4E5B-8680-72B3955F4C33}.Release|ARM.ActiveCfg = Release|Any CPU
+		{008BF50A-E514-4E5B-8680-72B3955F4C33}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
