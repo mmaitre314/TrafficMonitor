@@ -26,11 +26,11 @@ namespace TrafficMonitor
     //    new EndPointEntity
     //    {
     //        PartitionKey = "0",
-    //        RowKey = "HomeToWork",
-    //        StartLatitude = 47.697571,
-    //        StartLongitude = -122.0942,
-    //        EndLatitude = 47.644361,
-    //        EndLongitude = -122.141386
+    //        RowKey = "VancouverToPortlan",
+    //        StartLatitude = 49.287714,
+    //        StartLongitude = -123.052666,
+    //        EndLatitude = 45.564783,
+    //        EndLongitude = -122.737320
     //    }
     //  )
     //);
