@@ -20,7 +20,7 @@ namespace TrafficMonitorMobileServiceTests
     {
         const string m_baseAddress = "http://localhost:31415/";
         static readonly HttpClient m_client = new HttpClient();
-        static Func<HttpRequestMessage, ApiServices, IDomainManager<ManualRouteEntity>> m_initialDomainManagerFactory;
+        static Func<HttpRequestMessage, ApiServices, IDomainManager<ManualRoute>> m_initialDomainManagerFactory;
         static IDisposable m_webAppDispose;
 
         [ClassInitialize]
@@ -57,7 +57,7 @@ namespace TrafficMonitorMobileServiceTests
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
 
             string content = response.Content.ReadAsStringAsync().Result;
-            List<ManualRouteEntity> entities = JsonConvert.DeserializeObject<List<ManualRouteEntity>>(content);
+            List<ManualRoute> entities = JsonConvert.DeserializeObject<List<ManualRoute>>(content);
 
             Assert.AreEqual(1, entities.Count);
             Assert.AreEqual("PartitionKey", entities[0].PartitionKey);
@@ -73,7 +73,7 @@ namespace TrafficMonitorMobileServiceTests
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
 
             string content = response.Content.ReadAsStringAsync().Result;
-            ManualRouteEntity entity = JsonConvert.DeserializeObject<ManualRouteEntity>(content);
+            ManualRoute entity = JsonConvert.DeserializeObject<ManualRoute>(content);
 
             Assert.AreEqual("PartitionKey", entity.PartitionKey);
             Assert.AreEqual("RowKey", entity.RowKey);
@@ -93,7 +93,7 @@ namespace TrafficMonitorMobileServiceTests
         {
             HttpContent request = new StringContent(
                 JsonConvert.SerializeObject(
-                new ManualRouteEntity
+                new ManualRoute
                 {
                     PartitionKey = "PartitionKey",
                     RowKey = "RowKey",
@@ -107,7 +107,7 @@ namespace TrafficMonitorMobileServiceTests
             Assert.AreEqual(HttpStatusCode.Created, response.StatusCode);
 
             string content = response.Content.ReadAsStringAsync().Result;
-            ManualRouteEntity entity = JsonConvert.DeserializeObject<ManualRouteEntity>(content);
+            ManualRoute entity = JsonConvert.DeserializeObject<ManualRoute>(content);
 
             Assert.AreEqual("PartitionKey", entity.PartitionKey);
             Assert.AreEqual("RowKey", entity.RowKey);

@@ -3,7 +3,7 @@
 namespace TrafficMonitorMobileService
 {
     /// <summary></summary>
-    public class ManualRouteEntity : StorageData
+    public class ManualRoute : StorageData
     {
         /// <summary></summary>
         public string UserId { get; set; }

@@ -21,16 +21,21 @@ namespace TrafficMonitorMobileService
     //  http://www.asp.net/web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api
     //  http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 
+    // Doc on authentication and authorization:
+    //  http://www.asp.net/web-api/overview/security/external-authentication-services
+    //  http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/
+    //  http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts/
+    
     /// <summary></summary>
     [AuthorizeLevel(AuthorizationLevel.User)]
-    public class ManualRoutesController : TableController<ManualRouteEntity>
+    public class ManualRoutesController : TableController<ManualRoute>
     {
         /// <summary>
         /// IDomainManager factory enabling Dependency Inversion in tests
         /// </summary>
-        public static Func<HttpRequestMessage, ApiServices, IDomainManager<ManualRouteEntity>> CreateDomainManager = (request, services) =>
+        public static Func<HttpRequestMessage, ApiServices, IDomainManager<ManualRoute>> CreateDomainManager = (request, services) =>
             {
-                return new StorageDomainManager<ManualRouteEntity>(
+                return new StorageDomainManager<ManualRoute>(
                                 "AzureWebJobsStorage",
                                 "ManualRoutes",
                                 request,
@@ -53,28 +58,28 @@ namespace TrafficMonitorMobileService
         /// Read all rows from the ManualRoutes Azure Table
         /// </summary>
         [HttpGet, Route("tables/ManualRoutes")]
-        public async Task<IEnumerable<ManualRouteEntity>> GetAllRowsAsync()
+        public async Task<IEnumerable<ManualRoute>> GetAllRowsAsync()
         {
             ODataModelBuilder modelBuilder = new ODataConventionModelBuilder();
-            modelBuilder.EntitySet<ManualRouteEntity>("ManualRoutes");
+            modelBuilder.EntitySet<ManualRoute>("ManualRoutes");
             IEdmModel edmModel = modelBuilder.GetEdmModel();
 
             // StorageDomainManager.QueryAsync() requires MS_EdmModel
             var actionDescriptor = Request.Properties[HttpPropertyKeys.HttpActionDescriptorKey] as HttpActionDescriptor;
             if (actionDescriptor != null)
             {
-                actionDescriptor.Properties["MS_EdmModel" + typeof(ManualRouteEntity).FullName] = edmModel;
+                actionDescriptor.Properties["MS_EdmModel" + typeof(ManualRoute).FullName] = edmModel;
             }
 
             var options = new ODataQueryOptions(
                 new ODataQueryContext(
                     edmModel,
-                    typeof(ManualRouteEntity)
+                    typeof(ManualRoute)
                 ),
                 Request
             );
 
-            IEnumerable<ManualRouteEntity> entities = await DomainManager.QueryAsync(options);
+            IEnumerable<ManualRoute> entities = await DomainManager.QueryAsync(options);
 
             string userId = GetUserId();
             return entities.Where(entity => entity.UserId == userId);
@@ -85,12 +90,12 @@ namespace TrafficMonitorMobileService
         /// </summary>
         /// <param name="id">'PartitionKey','RowKey'</param>
         [HttpGet, Route("tables/ManualRoutes/{id}")]
-        public async Task<SingleResult<ManualRouteEntity>> GetRowAsync(string id)
+        public async Task<SingleResult<ManualRoute>> GetRowAsync(string id)
         {
-            SingleResult<ManualRouteEntity> result = await DomainManager.LookupAsync(id);
+            SingleResult<ManualRoute> result = await DomainManager.LookupAsync(id);
 
             string userId = GetUserId();
-            return new SingleResult<ManualRouteEntity>(
+            return new SingleResult<ManualRoute>(
                 result.Queryable.Where(entity => entity.UserId == userId)
                 );
         }
@@ -100,12 +105,12 @@ namespace TrafficMonitorMobileService
         /// </summary>
         /// <param name="item">Row content</param>
         [HttpPost, Route("tables/ManualRoutes")]
-        public async Task<IHttpActionResult> PostRowAsync(ManualRouteEntity item)
+        public async Task<IHttpActionResult> PostRowAsync(ManualRoute item)
         {
             // Set the current user
             item.UserId = GetUserId();
 
-            ManualRouteEntity current = await InsertAsync(item);
+            ManualRoute current = await InsertAsync(item);
             return CreatedAtRoute("tables", new { controller = "ManualRoutes", id = current.Id }, current);
         }
 

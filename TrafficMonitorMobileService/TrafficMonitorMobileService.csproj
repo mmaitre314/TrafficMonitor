@@ -191,7 +191,7 @@
   <ItemGroup>
     <Compile Include="StorageData.cs" />
     <Compile Include="ManualRoutesController.cs" />
-    <Compile Include="ManualRouteEntity.cs" />
+    <Compile Include="ManualRoute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

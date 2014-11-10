@@ -1,4 +1,5 @@
 ﻿using Microsoft.WindowsAzure.Mobile.Service;
+using Microsoft.WindowsAzure.Mobile.Service.Security.Providers;
 using System.Web.Http;
 using System.Web.Routing;
 
@@ -18,6 +19,10 @@ namespace TrafficMonitorMobileService
         {
             // Use this class to set configuration options for your mobile service
             ConfigOptions options = new ConfigOptions();
+
+            // Select supported login providers
+            options.LoginProviders.Clear();
+            options.LoginProviders.Add(typeof(MicrosoftAccountLoginProvider));
 
             // Use this class to set WebAPI configuration options
             HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
