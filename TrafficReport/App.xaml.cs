@@ -17,6 +17,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.WindowsAzure.MobileServices;
+using Windows.Storage;
+using Windows.ApplicationModel.Resources;
 
 namespace TrafficReport
 {
@@ -29,6 +31,8 @@ namespace TrafficReport
         "https://trafficmonitor.azure-mobile.net/",
         ApiKeys.MobileServiceClient
         );
+        public static ApplicationDataContainer LocalSettings;
+        public static ResourceLoader ResourceLoader;
 
         private TransitionCollection transitions;
 
@@ -38,8 +42,10 @@ namespace TrafficReport
         /// </summary>
         public App()
         {
-            this.InitializeComponent();
-            this.Suspending += this.OnSuspending;
+            InitializeComponent();
+            LocalSettings = ApplicationData.Current.LocalSettings;
+            ResourceLoader = new ResourceLoader();
+            Suspending += OnSuspending;
         }
 
         /// <summary>
@@ -50,13 +56,6 @@ namespace TrafficReport
         /// <param name="e">Details about the launch request and process.</param>
         protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
-#if DEBUG
-            if (System.Diagnostics.Debugger.IsAttached)
-            {
-                this.DebugSettings.EnableFrameRateCounter = true;
-            }
-#endif
-
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
