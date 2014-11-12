@@ -25,7 +25,11 @@ namespace TrafficMonitorMobileService
     //  http://www.asp.net/web-api/overview/security/external-authentication-services
     //  http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/
     //  http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts/
-    
+    //  http://blogs.msdn.com/b/carlosfigueira/archive/2012/10/23/troubleshooting-authentication-issues-in-azure-mobile-services.aspx 
+
+    // To test Microsoft Account sign-on:
+    //  https://trafficmonitormobileservice.azure-mobile.net/login/microsoftaccount
+
     /// <summary></summary>
     [AuthorizeLevel(AuthorizationLevel.User)]
     public class ManualRoutesController : TableController<ManualRoute>

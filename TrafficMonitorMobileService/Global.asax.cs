@@ -17,19 +17,9 @@ namespace TrafficMonitorMobileService
         /// <summary></summary>
         public static HttpConfiguration Configure()
         {
-            // Use this class to set configuration options for your mobile service
             ConfigOptions options = new ConfigOptions();
 
-            // Select supported login providers
-            options.LoginProviders.Clear();
-            options.LoginProviders.Add(typeof(MicrosoftAccountLoginProvider));
-
-            // Use this class to set WebAPI configuration options
             HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
-
-            // To display errors in the browser during development, uncomment the following
-            // line. Comment it out again when you deploy your service for production use.
-            // config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
 
             return config;
         }

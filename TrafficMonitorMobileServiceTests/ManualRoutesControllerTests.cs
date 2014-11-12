@@ -53,10 +53,13 @@ namespace TrafficMonitorMobileServiceTests
         public void TestGetAllRows()
         {
             HttpResponseMessage response = m_client.GetAsync(m_baseAddress + "tables/ManualRoutes").Result;
+            Console.WriteLine("HTTP response:\n{0}", response);
 
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
 
             string content = response.Content.ReadAsStringAsync().Result;
+            Console.WriteLine("HTTP response content:\n{0}", content);
+
             List<ManualRoute> entities = JsonConvert.DeserializeObject<List<ManualRoute>>(content);
 
             Assert.AreEqual(1, entities.Count);
@@ -69,10 +72,13 @@ namespace TrafficMonitorMobileServiceTests
         public void TestGetOneRow()
         {
             HttpResponseMessage response = m_client.GetAsync(m_baseAddress + "tables/ManualRoutes/'PartitionKey','RowKey'").Result;
+            Console.WriteLine("HTTP response:\n{0}", response);
 
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
 
             string content = response.Content.ReadAsStringAsync().Result;
+            Console.WriteLine("HTTP response content:\n{0}", content);
+
             ManualRoute entity = JsonConvert.DeserializeObject<ManualRoute>(content);
 
             Assert.AreEqual("PartitionKey", entity.PartitionKey);
@@ -84,6 +90,7 @@ namespace TrafficMonitorMobileServiceTests
         public void TestGetOneRowNoMatch()
         {
             HttpResponseMessage response = m_client.GetAsync(m_baseAddress + "tables/ManualRoutes/'BadPartitionKey','BadRowKey'").Result;
+            Console.WriteLine("HTTP response:\n{0}", response);
 
             Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode);
         }
@@ -103,10 +110,13 @@ namespace TrafficMonitorMobileServiceTests
             request.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
             HttpResponseMessage response = m_client.PostAsync(m_baseAddress + "tables/ManualRoutes", request).Result;
+            Console.WriteLine("HTTP response:\n{0}", response);
 
             Assert.AreEqual(HttpStatusCode.Created, response.StatusCode);
 
             string content = response.Content.ReadAsStringAsync().Result;
+            Console.WriteLine("HTTP response content:\n{0}", content);
+
             ManualRoute entity = JsonConvert.DeserializeObject<ManualRoute>(content);
 
             Assert.AreEqual("PartitionKey", entity.PartitionKey);
