@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>8305aa88-7f0a-4574-a907-e810d73c47d0</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>TrafficReport</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="$(MSBuildThisFileDirectory)ApiKeys.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Authentication.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ComboxBoxItemEndPoints.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubPage.xaml.cs">
+      <DependentUpon>HubPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ManualRoute.cs" />
+    <PRIResource Include="$(MSBuildThisFileDirectory)Strings\en-US\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)ApplicationInsights.config" />
+    <None Include="$(MSBuildThisFileDirectory)Assets\traffic2.ai" />
+    <None Include="$(MSBuildThisFileDirectory)Assets\traffic2.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)HubPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Assets\largelogo.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\largelogo.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\largelogo.scale-180.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\largelogo.scale-80.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\logo.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\logo.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\logo.scale-180.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\logo.scale-240.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\logo.scale-80.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phonesplashscreen.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phonesplashscreen.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phonesplashscreen.scale-240.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\smalllogo.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\smalllogo.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\smalllogo.scale-180.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\smalllogo.scale-80.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\smalltilelogo.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\smalltilelogo.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\smalltilelogo.scale-180.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\smalltilelogo.scale-80.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\splashscreen.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\splashscreen.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\splashscreen.scale-180.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\SplashScreen.scale-240.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\square44x44logo.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\square44x44logo.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\square44x44logo.scale-240.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\square71x71logo.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\square71x71logo.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\square71x71logo.scale-240.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\storelogo.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\storelogo.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\storelogo.scale-180.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\storelogo.scale-240.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\widelogo.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\widelogo.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\widelogo.scale-180.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\widelogo.scale-240.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\widelogo.scale-80.png" />
+  </ItemGroup>
+</Project>

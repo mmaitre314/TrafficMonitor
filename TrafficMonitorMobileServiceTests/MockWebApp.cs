@@ -12,7 +12,7 @@ namespace TrafficMonitorMobileServiceTests
     {
         public void Configuration(IAppBuilder appBuilder)
         {
-            HttpConfiguration config = WebApiApplication.Configure();
+            HttpConfiguration config = WebApiConfig.Register();
             appBuilder.UseWebApi(config);
         }
     }

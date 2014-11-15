@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
-namespace TrafficMonitorMobileService
+namespace TrafficReport
 {
     /// <summary>
     /// Data Transfer Object (DTO) for entities in the ManualRoute table
@@ -18,5 +15,8 @@ namespace TrafficMonitorMobileService
 
         /// <summary></summary>
         public DateTime EndTime { get; set; }
+
+        [Obsolete("Only here to keep MobileServiceTable.InsertAsync() happy")]
+        public string Id { get; set; }
     }
 }

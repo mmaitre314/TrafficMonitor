@@ -11,17 +11,7 @@ namespace TrafficMonitorMobileService
         /// <summary></summary>
         protected void Application_Start()
         {
-            Configure();
-        }
-
-        /// <summary></summary>
-        public static HttpConfiguration Configure()
-        {
-            ConfigOptions options = new ConfigOptions();
-
-            HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
-
-            return config;
+            WebApiConfig.Register();
         }
     }
 }

@@ -11,71 +11,71 @@ using TrafficMonitorMobileService;
 
 namespace TrafficMonitorMobileServiceTests
 {
-    class MockDomainManager : IDomainManager<ManualRoute>
+    class MockDomainManager : IDomainManager<ManualRouteEntity>
     {
         public Task<bool> DeleteAsync(string id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ManualRoute> InsertAsync(ManualRoute data)
+        public Task<ManualRouteEntity> InsertAsync(ManualRouteEntity data)
         {
             return Task.FromResult(data);
         }
 
-        public SingleResult<ManualRoute> Lookup(string id)
+        public SingleResult<ManualRouteEntity> Lookup(string id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<SingleResult<ManualRoute>> LookupAsync(string id)
+        public Task<SingleResult<ManualRouteEntity>> LookupAsync(string id)
         {
-            var list = new List<ManualRoute>();
+            var list = new List<ManualRouteEntity>();
 
-            if (id == "'PartitionKey','RowKey'")
+            if (id == "'DevelopmentUserId','RowKey'")
             {
-                list.Add(new ManualRoute
+                list.Add(new ManualRouteEntity
                 {
-                    UserId = "DevelopmentUserId",
-                    PartitionKey = "PartitionKey",
+                    PartitionKey = "DevelopmentUserId",
                     RowKey = "RowKey",
+                    EndPointsId = "EndPointsId",
                     StartTime = DateTime.Now,
                     EndTime = DateTime.Now
                 });
             }
 
             return Task.FromResult(
-                SingleResult<ManualRoute>.Create(
-                    list.AsQueryable<ManualRoute>()
+                SingleResult<ManualRouteEntity>.Create(
+                    list.AsQueryable<ManualRouteEntity>()
                 ));
         }
 
-        public IQueryable<ManualRoute> Query()
+        public IQueryable<ManualRouteEntity> Query()
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<ManualRoute>> QueryAsync(ODataQueryOptions query)
+        public Task<IEnumerable<ManualRouteEntity>> QueryAsync(ODataQueryOptions query)
         {
-            var list = new List<ManualRoute>();
-            list.Add(new ManualRoute
+            var list = new List<ManualRouteEntity>();
+            list.Add(new ManualRouteEntity
             {
-                UserId = "DevelopmentUserId",
-                PartitionKey = "PartitionKey",
+                PartitionKey = "DevelopmentUserId",
                 RowKey = "RowKey",
+                EndPointsId = "EndPointsId",
                 StartTime = DateTime.Now,
                 EndTime = DateTime.Now
             });
 
-            return Task.FromResult((IEnumerable<ManualRoute>)list);
+            return Task.FromResult((IEnumerable<ManualRouteEntity>)list);
         }
 
-        public Task<ManualRoute> ReplaceAsync(string id, ManualRoute data)
+        public Task<ManualRouteEntity> ReplaceAsync(string id, ManualRouteEntity data)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ManualRoute> UpdateAsync(string id, Delta<ManualRoute> patch)
+        public Task<ManualRouteEntity> UpdateAsync(string id, Delta<ManualRouteEntity> patch)
         {
             throw new NotImplementedException();
         }

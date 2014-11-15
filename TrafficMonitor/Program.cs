@@ -26,7 +26,7 @@ namespace TrafficMonitor
     //    new EndPointEntity
     //    {
     //        PartitionKey = "0",
-    //        RowKey = "VancouverToPortlan",
+    //        RowKey = "VancouverToPortland",
     //        StartLatitude = 49.287714,
     //        StartLongitude = -123.052666,
     //        EndLatitude = 45.564783,

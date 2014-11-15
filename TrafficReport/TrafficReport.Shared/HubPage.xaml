@@ -1,0 +1,41 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="TrafficReport.HubPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TrafficReport"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Loaded="pageRoot_Loaded"
+    >
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Hub Name="Hub" x:Uid="Hub" Header="traffic report">
+
+            <!-- Hub section: record -->
+            <HubSection Name="HubSectionRecord" x:Uid="HubSectionRecord" Header="RECORD" >
+                <DataTemplate>
+                    <StackPanel MinWidth="250">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
+                            <Button Name="ButtonRecord" x:Uid="ButtonRecord" HorizontalAlignment="Center" Content="Begin trip" Margin="20,0" IsEnabled="False" Click="ButtonRecord_Click"/>
+                            <Button Name="ButtonCancel" x:Uid="ButtonCancel" Visibility="Collapsed" HorizontalAlignment="Center" Margin="20,0" IsEnabled="False" Click="ButtonCancel_Click">Cancel</Button>
+                        </StackPanel>
+                        <ComboBox Name="ComboBoxEndPoints" SelectionChanged="ComboBoxEndPoints_SelectionChanged" IsEnabled="False" Margin="0,10,0,10"></ComboBox>
+                        <TextBlock Name="TextLog" Text="" HorizontalAlignment="Left" FontSize="14"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </HubSection>
+
+            <!-- Pivot item: forecast -->
+            <HubSection Name="HubSectionForecast" x:Uid="HubSectionForecast" Header="FORECAST" >
+                <DataTemplate>
+                    <StackPanel MinWidth="250">
+                        <TextBlock FontSize="14">TODO: Forecast graphs</TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </HubSection>
+
+        </Hub>
+    </Grid>
+</Page>
