@@ -124,7 +124,7 @@ namespace TrafficMonitor
             {
                 PartitionKey = endPointId,
                 RowKey = m_routeBatchId,
-                Time = DateTime.Now,
+                Time = DateTime.UtcNow, // Use UTC to avoid daylight-savings issues when serializing into the Azure Table
                 DurationUnit = route.DurationUnit,
                 Duration = route.TravelDuration,
                 Distance = route.TravelDistance,
